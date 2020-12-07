@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:th="http://www.springframework.org/schema/data/jaxb"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{admin/index.html}">
+<head>
+    <meta charset="UTF-8">
+	<style>
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<!-- page content -->
+			<div class="right_col" role="main" layout:fragment="content">
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="main-breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/admin/index">Trang chủ</a></li>
+          <li class="breadcrumb-item"><a href="/admin/employee">Khách hàng</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Cập nhật</li>
+        </ol>
+      </nav>
+      <!-- /Breadcrumb -->
+				<div class="">
+					<div class="clearfix"></div>
+
+					<!-- Start Page Content -->
+					<!-- ============================================================== -->
+					<!-- Row -->
+					<form th:object="${customer}" th:action="@{/admin/customer/update}" action="#" method="post" enctype="multipart/form-data">
+						<div class="row">
+							<!-- Column -->
+							<div class="col-lg-4 col-xlg-3 col-md-5">
+								<div class="card">
+									<div class="card-body">
+										<center class="m-t-30">
+											<img th:src="@{'/getimage/' + ${customer.image}}"
+												class="img-circle" alt="avatar" height="150px" width="150">
+											<div style="clear: both; display: block; height: 10px"></div>
+											<h6>Cập nhật ảnh đại diện</h6>
+											<label th:for="photo_file"></label> <input type="file"
+												class="text-center center-block file-upload"
+												name="photo_file" id="photo_file"> <input
+												type="hidden" th:field="*{image}">
+											
+										</center>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-body">
+										<center class="m-t-30">
+											<h4 class="card-title m-t-10" th:text="*{fullname}"></h4>
+										</center>
+									</div>
+								</div>
+							</div>
+							<!-- Column -->
+							<div class="col-lg-8 col-xlg-9 col-md-7">
+								<div class="card">
+									<!-- Tab panes -->
+									<div class="card-body">
+										<form class="form-horizontal form-material">
+											<div class="card-body">
+											<input type="hidden" th:field="*{username}"/>
+												<div>
+													<label th:for="username">Tài khoản</label> 
+													<input type="text" th:field="*{username}" class="form-control form-control-line" disabled="disabled" />
+												</div>
+												<div style="clear: both; display: block; height: 10px"></div>
+												<div>
+													<label th:for="password">Mật khẩu</label> 
+													<input type="text" th:field="*{password}" class="form-control form-control-line" id="Password" maxlength="20" />
+													<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" id="password" class="error"></span>
+												</div>
+												<div style="clear: both; display: block; height: 10px"></div>
+												<div>
+													<label th:for="fullname">Họ và tên</label> 
+													<input type="text" th:field="*{fullname}" class="form-control form-control-line" id="Fullname"/>
+													<span th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}" id="fullname" class="error"></span>
+												</div>
+												<div style="clear: both; display: block; height: 10px"></div>
+												<div>
+													<label th:for="birthday">Ngày sinh</label> 
+													<input type="date" th:field="*{birthday}" class="form-control form-control-line" id="Birthday"/>
+													<span th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" id="birthday" class="error"></span>
+												</div>
+												<div style="clear: both; display: block; height: 10px"></div>
+												<div>
+													<label th:for="address">Địa chỉ</label> 
+													<textarea id="Address" name="address" style="width: 630px; height: 75px" th:field="*{address}"></textarea>
+													<!-- <input type="text" th:field="*{address}" class="form-control form-control-line" id="Address" /> -->
+													<span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" id="address" class="error"></span>
+												</div>
+												<div style="clear: both; display: block; height: 10px"></div>
+												<div>
+													<label th:for="email">Email</label> 
+													<input type="text" th:field="*{email}" class="form-control form-control-line" id="Email"/>
+													<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" id="email" class="error"></span>
+												</div>
+												<div style="clear: both; display: block; height: 10px"></div>
+												<div>
+													<label th:for="phoneNumber">Số điện thoại</label> 
+													<input type="text" th:field="*{phoneNumber}" class="form-control form-control-line" id="PhoneNumber"/>
+													<span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" id="phoneNumber" class="error"></span>
+												</div>
+												<div style="clear: both; display: block; height: 10px"></div>
+												<div>
+													<label th:for="gender">Giới tính</label> 
+													<select th:field="*{gender}" class="form-control form-control-line">
+														<option value="0">Nam</option>
+														<option value="1">Nữ</option>
+													</select>
+
+												</div>
+												<div style="clear: both; display: block; height: 10px"></div>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="submit" class="btn btn-success" value="Cập nhật" style="margin-left: -10px"/>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							</div>
+					</form>
+				</div>
+			</div>
+<!-- 		
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			var readURL = function(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+
+					reader.onload = function(e) {
+						$('.img-circle').attr('src', e.target.result);
+					}
+
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+
+			$(".file-upload").on('change', function() {
+				readURL(this);
+			});
+		});
+	</script> -->
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	 <script>
+	 function readURL(input) {
+	        if (input.files && input.files[0]) {
+	            var reader = new FileReader();
+	            
+	            reader.onload = function (e) {
+	                $('#photo').attr('src', e.target.result);
+	            }
+	            
+	            reader.readAsDataURL(input.files[0]);
+	        }
+	    }
+	    
+	    $("#photo_file").change(function(){
+	        readURL(this);
+	    });
+	    
+	    $("#Username").on('input', function(){
+			var username = document.getElementById("Username").value;
+			if(username != ""){
+				document.getElementById("username").innerHTML = "";
+			}
+		});
+		
+		$("#Password").on('input', function(){
+			var password = document.getElementById("Password").value;
+			if(password != ""){
+				document.getElementById("password").innerHTML = "";
+			}
+		});
+		
+		$("#Fullname").on('input', function(){
+			var fullname = document.getElementById("Fullname").value;
+			if(fullname != ""){
+				document.getElementById("fullname").innerHTML = "";
+			}
+		});
+		
+		$("#Birthday").on('input', function(){
+			var birthday = document.getElementById("Birthday").value;
+			if(birthday != ""){
+				document.getElementById("birthday").innerHTML = "";
+			}
+		});
+		
+		$("#Address").on('input', function(){
+			var address = document.getElementById("Address").value;
+			if(address != ""){
+				document.getElementById("address").innerHTML = "";
+			}
+		});
+		
+		$("#Email").on('input', function(){
+			var email = document.getElementById("Email").value;
+			if(email != ""){
+				document.getElementById("email").innerHTML = "";
+			}
+		});
+		
+		$("#PhoneNumber").on('input', function(){
+			var phoneNumber = document.getElementById("PhoneNumber").value;
+			if(phoneNumber != ""){
+				document.getElementById("phoneNumber").innerHTML = "";
+			}
+		});
+	 </script>
+</body>
+</html>
