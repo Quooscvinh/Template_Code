@@ -14,10 +14,10 @@
 	;
 
 .login-block {
-	background: #DE6262; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
+	background: #f0e554; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #FFB88C, #f0e554);
 	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #FFB88C, #DE6262);
+	background: linear-gradient(to bottom, #FFCC00, #f0e554);
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	float: left;
 	width: 100%;
@@ -25,9 +25,9 @@
 }
 
 .banner-sec {
-	background: url(https://static.pexels.com/photos/33972/pexels-photo.jpg)
-		no-repeat left bottom;
-	background-size: cover;
+	background: url(https://giphy.com/gifs/KHb79aIwd5vMcBnte4/html5)
+		no-repeat  bottom center scroll #FFCC00;
+	background-size:480px;
 	min-height: 500px;
 	border-radius: 0 10px 10px 0;
 	padding: 0;
@@ -37,12 +37,17 @@
 	background: #fff;
 	border-radius: 10px;
 	box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+	
 }
 
 .carousel-inner {
 	border-radius: 0 10px 10px 0;
 }
-
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .carousel-caption {
 	text-align: left;
 	left: 5%;
@@ -62,25 +67,25 @@
 }
 
 .login-sec .copy-text i {
-	color: #feed8a;
+	color: #FFCC00;
 }
 
 .login-sec .copy-text a {
-	color: #E36262;
+	color: #FFCC00;
 }
 
 .login-sec h2 {
 	margin-bottom: 30px;
 	font-weight: 800;
 	font-size: 30px;
-	color: #DE6262;
+	color: #FFCC00;
 }
 
 .login-sec h2:after {
 	content: " ";
 	width: 100px;
 	height: 5px;
-	background: #FEB58A;
+	background: #f0e554;
 	display: block;
 	margin-top: 20px;
 	border-radius: 3px;
@@ -89,7 +94,7 @@
 }
 
 .btn-login {
-	background: #DE6262;
+	background: #FFCC00;
 	color: #fff;
 	font-weight: 600;
 }
@@ -102,7 +107,7 @@
 }
 
 .banner-text h2 {
-	color: #fff;
+	color: #f0e554;
 	font-weight: 600;
 }
 
@@ -117,7 +122,10 @@
 }
 
 .banner-text p {
-	color: #fff;
+	color: #f0e554;
+}
+ a {
+	color: #FFCC00;
 }
 </style>
 <!------ Include the above in your HEAD tag ---------->
@@ -164,10 +172,14 @@
 				<div id="carouselExampleIndicators" class="carousel slide"
 					data-ride="carousel">
 					<div class="carousel-inner" role="listbox">
-						<div class="carousel-item active"></div>
+						<div class="carousel-item active">
+						<img src="images/giphy.gif" style=“width:700;height:500;margin-left:300px” >
+						
+						</div>
 					</div>
 
 				</div>
 			</div>
+		</div>
 		</div>
 </section>

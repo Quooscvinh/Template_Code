@@ -52,7 +52,7 @@ public class EmployeeController {
 			Model model) {
 		if (employeeRepository.existsById(employee.getUsername())) {
 			employee.setUsername(null);
-			model.addAttribute("message", "Username is already exists!");
+			model.addAttribute("message", "Tài khoản đã tồn tại");
 			return "admin/employee/add";
 		}
 		if (bindingResult.hasErrors()) {
@@ -114,7 +114,7 @@ public class EmployeeController {
 			emp.setRestPasswordToken(token);
 			employeeRepository.save(emp);
 		}else {
-			throw new EmployeeNotFoundException("Cound not find Email");
+			throw new EmployeeNotFoundException("Địa chỉ Email không tồn tại");
 		}
 	}
 	public Employee get(String restPasswordToken) {

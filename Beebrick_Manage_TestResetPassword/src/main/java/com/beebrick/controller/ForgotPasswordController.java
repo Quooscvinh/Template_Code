@@ -103,7 +103,8 @@ public class ForgotPasswordController {
 			
 		} else {
 			empSevice.updatePassword(emp, password);
-			model.addAttribute("message", "Thành công");
+			model.addAttribute("message", "Cập nhật mật khẩu mới thành công");
+			
 		}
 		return "message";
 		
